@@ -1,0 +1,58 @@
+/* Colors: dark burgundy page (VERN, D11); cream, pink and yellow come from the paintings. */
+* { box-sizing: border-box; }
+body { margin: 0; background: #430e19; color: #f1e8d6; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column;
+  font: 14px/1.5 "Courier Prime", "American Typewriter", "Courier New", Courier, monospace; }
+a, button { color: #f1e8d6; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid #e3c02f; outline-offset: 4px; }
+button { font: inherit; background: none; border: 0; padding: 12px; cursor: pointer; }
+img { display: block; max-width: 100%; height: auto; }
+h1 { font-size: 16px; margin: 0 0 4px; }
+p { margin: 0 0 8px; }
+figure { margin: 0; }
+header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px 12px; padding: 16px 20px; }
+.logo { width: 118px; height: auto; display: block; }
+.name:hover .logo { transform: rotate(-3deg); }
+.logo, .wall a { transition: transform .25s; }
+header nav { display: flex; margin: 0 -10px; }
+header nav a { padding: 12px 10px; }
+/* a hand-drawn pink underline */
+nav a:hover, nav a[aria-current] { background: no-repeat center bottom 4px / calc(100% - 16px) 7px
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 7' preserveAspectRatio='none'%3E%3Cpath d='M1 4Q9 0 16 4T30 3T45 5T59 2' fill='none' stroke='%23dd899b' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+main { flex: 1; display: flex; flex-direction: column; }
+
+/* landing: one painting */
+.only { flex: 1; position: relative; min-height: 180px; margin: 0 20px 72px; }
+.only img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+
+/* works: only the pictures */
+.wall { padding: 12px 20px 56px; width: 100%; max-width: 1300px; margin: 0 auto; }
+.wall a { display: block; margin-bottom: 28px; break-inside: avoid; }
+.wall a:nth-child(odd):hover { transform: rotate(-.8deg); }
+.wall a:nth-child(even):hover { transform: rotate(.8deg); }
+
+/* one painting */
+.one { padding: 8px 20px; margin: 0 auto; }
+.one img { max-height: 78vh; max-height: 78svh; width: auto; margin: 0 auto; }
+.one a { cursor: zoom-in; display: block; }
+.one figcaption { margin-top: 14px; }
+.turn { display: flex; justify-content: space-between; padding: 8px 12px 24px; }
+.turn a { padding: 12px 8px; }
+dialog { border: 0; padding: 0; width: 100vw; height: 100vh; height: 100dvh; max-width: none; max-height: none; background: #1c1713; }
+.pan { width: 100%; height: 100%; overflow: auto; }
+.pan img { max-width: none; width: max(100vw, 1600px); cursor: zoom-out; }
+#close { position: fixed; top: 12px; right: 12px; z-index: 1; background: #430e19; }
+.words { padding: 32px 20px; max-width: 560px; }
+
+@media (min-width: 760px) {
+  header { padding: 24px 40px; }
+  .logo { width: 190px; }
+  .only { margin: 0 40px 72px; }
+  .words { padding: 48px 40px; }
+  .wall { padding: 20px 40px 80px; columns: 2; column-gap: 36px; }
+  .wall a { margin-bottom: 36px; }
+  .one { display: flex; align-items: flex-end; justify-content: center; gap: 24px; padding: 8px 40px; }
+  .one a { min-width: 0; }
+  .one figcaption { width: 180px; flex: none; }
+  .turn { padding: 8px 32px 24px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; transform: none !important; } }
